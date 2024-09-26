@@ -4,7 +4,7 @@ Object.prototype[Symbol.iterator] = function () {
 
     return {
         next() {
-            if (Number.isFinite(current) || Number.isFinite(last) || current == undefined || last == undefined) {
+            if (typeof current !== "number" || typeof last !== "number") {
                 throw (new Error("Error!"));
             }
 
