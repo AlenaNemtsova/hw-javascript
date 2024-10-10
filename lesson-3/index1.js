@@ -9,7 +9,6 @@ Object.prototype[Symbol.iterator] = function () {
             }
 
             if (current <= last) {
-
                 return {
                     done: false,
                     value: current++
