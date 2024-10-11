@@ -12,6 +12,7 @@ class Calculator {
         if (!Calculator.isValidNum(numX)) {
             throw new Error('First value is not a number');
         }
+
         this.numX = numX;
     }
 
@@ -19,6 +20,7 @@ class Calculator {
         if (!Calculator.isValidNum(numY)) {
             throw new Error('Second value is not a number');
         }
+
         this.numY = numY;
     }
 
@@ -38,6 +40,7 @@ class Calculator {
         if (this.numY === 0) {
             throw new Error(`You can't divide by 0`);
         }
+
         return this.numX / this.numY;
     }
 }
