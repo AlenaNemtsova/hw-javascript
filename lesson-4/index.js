@@ -1,48 +1,54 @@
 class Calculator {
-    constructor(x, y) {
-        this.setX(x);
-        this.setY(y);
+    constructor(numX, numY) {
+        this.setX(numX);
+        this.setY(numY);
     }
 
-    isValidNum() {
-        if (typeof num === 'number' && !isNaN(num)) {
-            return !isNaN(num) && typeof num === 'number';
+    static isValidNum(num) {
+        return !isNaN(num) && typeof num === 'number' && num !== Infinity && num !== -Infinity;
+    }
+
+    setX(numX) {
+        if (!Calculator.isValidNum(numX)) {
+            throw new Error('First value is not a number');
         }
+        this.numX = numX;
     }
 
-    setX(x) {
-        if (!Calculator.isValidNum(x)) {
-            throw new Error('x is not a number');
+    setY(numY) {
+        if (!Calculator.isValidNum(numY)) {
+            throw new Error('Second value is not a number');
         }
-        this.x = x;
+        this.numY = numY;
     }
 
-    setY(y) {
-        if (!Calculator.isValidNum(y)) {
-            throw new Error('y is not a number');
-        }
-        this.y = y;
+    logSum = () => {
+        return this.numX + this.numY;
     }
 
-    logSum() {
-        return this.x + this.y;
+    logMul = () => {
+        return this.numX * this.numY;
     }
 
-    logMul() {
-        return this.x * this.y;
+    logSub = () => {
+        return this.numX - this.numY;
     }
 
-    logSub() {
-        return this.x - this.y;
-    }
-
-    logDiv() {
-        if (this.y === 0) {
+    logDiv = () => {
+        if (this.numY === 0) {
             throw new Error(`You can't divide by 0`);
         }
-        return this.x / this.y;
+        return this.numX / this.numY;
     }
 }
 
+const calculator = new Calculator(1, 2);
 const logSumRef = calculator.logSum;
+const logMulRef = calculator.logMul;
+const logSubRef = calculator.logSub;
+const loglogDivRef = calculator.logDiv;
+
 console.log(logSumRef());
+console.log(logMulRef());
+console.log(logSubRef());
+console.log(loglogDivRef());
