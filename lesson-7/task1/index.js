@@ -1,3 +1,5 @@
+'use strict';
+
 const button = document.getElementById('button');
 
 function moveButton() {
@@ -14,6 +16,4 @@ button.addEventListener('mouseover', () => {
     }
 });
 
-button.addEventListener('click', () => {
-    moveButton();
-});
+button.addEventListener('click', moveButton);
